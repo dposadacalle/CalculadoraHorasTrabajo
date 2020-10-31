@@ -1,7 +1,7 @@
 package com.ias.calculadora.horas.trabajo.models;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,32 +9,27 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "servicios")
-public class Servicio implements Serializable{
+public class Tecnico implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name = "str_ident_tecnico", length = 30)
+	@Column(name = "ident_tecnico", length = 30)
 	private String identTecnico;
 	
 	@Column(name="ident_servicio", length = 30)
 	private String identServicio;
 	
 	@Column(name="fecha_inicio")
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date fechaInicio;
+	private LocalDateTime fechaInicio;
 	
 	@Column(name="fecha_fin")
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date fechaFin;
+	private LocalDateTime fechaFin;
 	
-		
 	public Long getId() {
 		return id;
 	}
@@ -58,23 +53,24 @@ public class Servicio implements Serializable{
 	public void setIdentServicio(String identServicio) {
 		this.identServicio = identServicio;
 	}
-
-	public Date getFechaInicio() {
+	
+	public LocalDateTime getFechaInicio() {
 		return fechaInicio;
 	}
 
-	public void setFechaInicio(Date fechaInicio) {
+	public void setFechaInicio(LocalDateTime fechaInicio) {
 		this.fechaInicio = fechaInicio;
 	}
 
-	public Date getFechaFin() {
+	public LocalDateTime getFechaFin() {
 		return fechaFin;
 	}
 
-	public void setFechaFin(Date fechaFin) {
+	public void setFechaFin(LocalDateTime fechaFin) {
 		this.fechaFin = fechaFin;
 	}
 
+	
 	private static final long serialVersionUID = 1L;
 	
 }
