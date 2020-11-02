@@ -1,7 +1,6 @@
 package com.ias.calculadora.horas.trabajo.services;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,14 +21,20 @@ public class TecnicoServiceImpl implements ITecnicoService{
 		return (List<Tecnico>) tecnicoDao.findAll();
 	}
 
-	@Override
-	public Optional<Tecnico> findById(Long id) {
-		return tecnicoDao.findById(id);
-	}
 
 	@Override
 	public Tecnico save(Tecnico tecnico) {
 		return tecnicoDao.save(tecnico);
 	}
+
+
+	@Override
+	@org.springframework.transaction.annotation.Transactional(readOnly = true)
+	public Tecnico findById(Long id) {
+		// Retorna un Optional nos permite manejar el contenido de la consulta
+		return tecnicoDao.findById(id).orElse(null);
+	}
+	
+	
 
 }

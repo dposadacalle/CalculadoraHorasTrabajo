@@ -1,7 +1,7 @@
 package com.ias.calculadora.horas.trabajo.models;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "servicios")
@@ -25,10 +27,12 @@ public class Tecnico implements Serializable{
 	private String identServicio;
 	
 	@Column(name="fecha_inicio")
-	private LocalDateTime fechaInicio;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date fechaInicio;
 	
 	@Column(name="fecha_fin")
-	private LocalDateTime fechaFin;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date fechaFin;
 	
 	public Long getId() {
 		return id;
@@ -54,19 +58,19 @@ public class Tecnico implements Serializable{
 		this.identServicio = identServicio;
 	}
 	
-	public LocalDateTime getFechaInicio() {
+	public Date getFechaInicio() {
 		return fechaInicio;
 	}
 
-	public void setFechaInicio(LocalDateTime fechaInicio) {
+	public void setFechaInicio(Date fechaInicio) {
 		this.fechaInicio = fechaInicio;
 	}
 
-	public LocalDateTime getFechaFin() {
+	public Date getFechaFin() {
 		return fechaFin;
 	}
 
-	public void setFechaFin(LocalDateTime fechaFin) {
+	public void setFechaFin(Date fechaFin) {
 		this.fechaFin = fechaFin;
 	}
 
