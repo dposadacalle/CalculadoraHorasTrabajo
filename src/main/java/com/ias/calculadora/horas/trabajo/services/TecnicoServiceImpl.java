@@ -27,7 +27,6 @@ public class TecnicoServiceImpl implements ITecnicoService{
 		return tecnicoDao.save(tecnico);
 	}
 
-
 	@Override
 	@org.springframework.transaction.annotation.Transactional(readOnly = true)
 	public Tecnico findById(Long id) {
